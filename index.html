@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Todo List Application</h1>
+     <div class="add-task">
+        <input
+        type="text"
+        style="
+          padding: 14px 16px;
+          margin: 20px;
+          width: 50%;
+          font-size: 15px;
+          font-weight: 600;
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          border: none;
+        "
+        placeholder="Enter Task"
+        name=""
+        id="taskInput"
+      />
+      <button
+        onclick="takeData()"
+        style="
+          padding: 14px 16px;
+          margin: 20px;
+          width: 25%;
+          background-color: blueviolet;
+          font-size: 15px;
+          font-weight: 600;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          border-radius: 10px;
+          border: none;
+          color: white;
+        "
+      >
+        Add Task
+      </button>
+     </div>
+     <div class="ul">
+       <ul id="tasklist"></ul>
+     </div>
+    </div>
+    <script>
+        function takeData(){
+           var taskInput=document.getElementById('taskInput')
+           var tasklist=document.getElementById('tasklist')
+           console.log(taskInput.value)
+
+           var li=document.createElement('li')
+           li.textContent=taskInput.value
+           console.log(li)
+          
+           var removeButton=document.createElement('button')
+           removeButton.textContent='Remove';
+           removeButton.className='btn';
+           removeButton.onclick=function(){
+            tasklist.removeChild(li)
+           }
+           li.appendChild(removeButton)
+           tasklist.appendChild(li)
+           taskInput.value=''
+        }
+    </script>
+  </body>
+</html>
